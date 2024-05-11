@@ -13,7 +13,7 @@ print("1. se connecter")
 print("2. s'inscrire")
 print("3. deconnecter")
 
-nbr = int(input("que souhaiter vous faire : "))
+choix = int(input("que souhaiter vous faire : "))
 
 user_list = []
 mdp_list = []
@@ -32,11 +32,15 @@ def inscription():
     else:
         print("Le mots de passe correspondent bien")
 
-if nbr == 1:
-    connection()
+def menu_non_connecter():
+    while True:
+        if choix == 1:
+            connection()
 
-elif nbr == 2:
-    inscription()
+        elif choix == 2:
+            inscription()
     
-elif nbr == 3:
-    print("vous êtes déconnecter")
+        elif choix == 3:
+            print("vous êtes déconnecter")
+
+menu_non_connecter()
