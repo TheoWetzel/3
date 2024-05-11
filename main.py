@@ -39,8 +39,8 @@ def inscription():
 
     else:
         print("Les mots de passe correspondent bien")
-        user_list.append("ffg")
-        mdp_list.append("1234")
+        user_list.append(username)
+        mdp_list.append(password)
         
 def menu_non_connecter():
         if choix == 1:
