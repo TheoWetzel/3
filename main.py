@@ -15,8 +15,8 @@ print("3. deconnecter")
 
 nbr = int(input("que souhaiter vous faire : "))
 
-user_list = []
-mdp_list = []
+user_list = ["theo",]
+mdp_list = ["ok",]
 
 if nbr == 1:
     Username_verification = input("Mettez votre nom d'utilisateur : ")
