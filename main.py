@@ -13,7 +13,6 @@ print("1. Se connecter")
 print("2. S'inscrire")
 print("3. Déconnecté")
 
-
 user_list = []
 mdp_list = []
 
@@ -25,8 +24,8 @@ def connection():
 
     if username not in user_list:
         print("Votre nom d'utilisateur ou votre mot de passe est incorrect")
-        if password not in mdp_list:
-            print("Votre nom d'utilisateur ou votre mot de passe est incorrect")
+    elif password not in mdp_list:
+        print("Votre nom d'utilisateur ou votre mot de passe est incorrect")
     else:
         print("Vous êtes connecté")
 
@@ -40,8 +39,8 @@ def inscription():
 
     else:
         print("Les mots de passe correspondent bien")
-        user_list.append(username)
-        mdp_list.append(password)
+        user_list.append("ffg")
+        mdp_list.append("1234")
         
 def menu_non_connecter():
         if choix == 1:
