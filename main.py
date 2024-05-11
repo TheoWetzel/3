@@ -7,13 +7,13 @@ print("""
              |__|       |__|    |__|    |______|    |___________|
                                                                    """)
 
-print("souhaiter vous vous connecter a notre systeme")
+print("Souhaiter vous vous connecter a notre systeme")
 
-print("1. se connecter")
-print("2. s'inscrire")
-print("3. deconnecter")
+print("1. Se connecter")
+print("2. S'inscrire")
+print("3. Deconnecter")
 
-choix = int(input("que souhaiter vous faire : "))
+choix = int(input("Que souhaiter vous faire : "))
 
 user_list = []
 mdp_list = []
@@ -23,9 +23,9 @@ def connection():
     Password_verification = input("Mettez votre mots de passe : ")
 
 def inscription():
-    Username_inscription = str(input("mettez votre nom d'utilisateur : "))
-    Password_inscription = input("mettez votre mots de passe : ")
-    Password_inscription2 = input("re-mettez votre mots de passe : ")
+    Username_inscription = str(input("Mettez votre nom d'utilisateur : "))
+    Password_inscription = input("Mettez votre mots de passe : ")
+    Password_inscription2 = input("Re-mettez votre mots de passe : ")
 
     if Password_inscription != Password_inscription2:
         print("Le mots de passe ne correspondent pas")
@@ -41,6 +41,6 @@ def menu_non_connecter():
             inscription()
     
         elif choix == 3:
-            print("vous êtes déconnecter")
+            print("Vous êtes déconnecter")
 
 menu_non_connecter()
