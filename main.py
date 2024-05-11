@@ -7,40 +7,50 @@ print("""
              |__|       |__|    |__|    |______|    |___________|
                                                                    """)
 
-print("Souhaiter vous vous connecter a notre systeme")
+print("Souhaitez-vous vous connecter à notre systême")
 
 print("1. Se connecter")
 print("2. S'inscrire")
-print("3. Deconnecter")
+print("3. Déconnecté")
 
-choix = int(input("Que souhaiter vous faire : "))
 
 user_list = []
 mdp_list = []
 
+choix = int(input("Que souhaiter vous faire : "))
+
 def connection():
-    Username_verification = input("Mettez votre nom d'utilisateur : ")
-    Password_verification = input("Mettez votre mots de passe : ")
+    username = input("Nom d'utilisateur : ")
+    password = input("Mot de passe : ")
+
+    if username not in user_list:
+        print("Votre nom d'utilisateur ou votre mot de passe est incorrect")
+        if password not in mdp_list:
+            print("Votre nom d'utilisateur ou votre mot de passe est incorrect")
+    else:
+        print("Vous êtes connecté")
 
 def inscription():
-    Username_inscription = str(input("Mettez votre nom d'utilisateur : "))
-    Password_inscription = input("Mettez votre mots de passe : ")
-    Password_inscription2 = input("Re-mettez votre mots de passe : ")
+    username = str(input("Mettez votre nom d'utilisateur : "))
+    password = input("Mettez votre mots de passe : ")
+    password2 = input("Re-mettez votre mots de passe : ")
 
-    if Password_inscription != Password_inscription2:
-        print("Le mots de passe ne correspondent pas")
+    if password != password2:
+        print("Les mots de passe ne correspondent pas")
+
     else:
-        print("Le mots de passe correspondent bien")
-
+        print("Les mots de passe correspondent bien")
+        user_list.append(username)
+        mdp_list.append(password)
+        
 def menu_non_connecter():
-    while True:
         if choix == 1:
             connection()
 
         elif choix == 2:
             inscription()
-    
+
         elif choix == 3:
-            print("Vous êtes déconnecter")
+            print("Vous êtes déconnecté !")
 
 menu_non_connecter()
