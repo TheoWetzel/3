@@ -21,6 +21,7 @@ mdp_list = []
 def connection():
     Username_verification = input("Mettez votre nom d'utilisateur : ")
     Password_verification = input("Mettez votre mots de passe : ")
+
 def inscription():
     Username_inscription = str(input("mettez votre nom d'utilisateur : "))
     Password_inscription = input("mettez votre mots de passe : ")
@@ -33,7 +34,9 @@ def inscription():
 
 if nbr == 1:
     connection()
+
 elif nbr == 2:
     inscription()
+    
 elif nbr == 3:
     print("vous êtes déconnecter")
