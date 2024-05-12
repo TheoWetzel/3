@@ -13,8 +13,8 @@ print("1. Se connecter")
 print("2. S'inscrire")
 print("3. Déconnecté")
 
-user_list = []
-mdp_list = []
+data_user = open("data.txt", "a")
+# data_content = data_user.read()
 
 choix = int(input("Que souhaiter vous faire : "))
 
@@ -22,12 +22,15 @@ def connection():
     username = input("Nom d'utilisateur : ")
     password = input("Mot de passe : ")
 
-    if username not in user_list:
+    if username not in data_user:
         print("Votre nom d'utilisateur ou votre mot de passe est incorrect")
-    elif password not in mdp_list:
+    elif password not in data_user:
         print("Votre nom d'utilisateur ou votre mot de passe est incorrect")
     else:
         print("Vous êtes connecté")
+
+# def sign_in_data():
+  #  pass
 
 def inscription():
     username = str(input("Mettez votre nom d'utilisateur : "))
@@ -37,10 +40,16 @@ def inscription():
     if password != password2:
         print("Les mots de passe ne correspondent pas")
 
+    # elif username in data_content:
+    #     print("Le nom d'utilisateur est deja pris")
+
     else:
         print("Les mots de passe correspondent bien")
-        user_list.append(username)
-        mdp_list.append(password)
+        data_user.write(username)
+        for line in data_user:
+
+            continue
+        line.split.str(data_user.write(password))
         
 def menu_non_connecter():
         if choix == 1:
@@ -51,5 +60,6 @@ def menu_non_connecter():
 
         elif choix == 3:
             print("Vous êtes déconnecté !")
+            data_user.close()
 
 menu_non_connecter()
