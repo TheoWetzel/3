@@ -13,24 +13,22 @@ print("1. Se connecter")
 print("2. S'inscrire")
 print("3. Déconnecté")
 
-data_user = open("data.txt", "a")
-# data_content = data_user.read()
-
 choix = int(input("Que souhaiter vous faire : "))
+
+def folder_data():
+    data_user = open("data.txt", "a+")
+
 
 def connection():
     username = input("Nom d'utilisateur : ")
     password = input("Mot de passe : ")
 
-    if username not in data_user:
+    if username not in folder_data.data_user:
         print("Votre nom d'utilisateur ou votre mot de passe est incorrect")
-    elif password not in data_user:
+    elif password not in folder_data.data_user:
         print("Votre nom d'utilisateur ou votre mot de passe est incorrect")
     else:
         print("Vous êtes connecté")
-
-# def sign_in_data():
-  #  pass
 
 def inscription():
     username = str(input("Mettez votre nom d'utilisateur : "))
@@ -40,26 +38,42 @@ def inscription():
     if password != password2:
         print("Les mots de passe ne correspondent pas")
 
-    # elif username in data_content:
-    #     print("Le nom d'utilisateur est deja pris")
+    elif username in folder_data.data_user:
+        try:
+            retry_username = str(username)
+        except ValueError:
+            print("Nom d'utilisateur deja pris !")
+        print(retry_username)
+
 
     else:
         print("Les mots de passe correspondent bien")
-        data_user.write(username)
-        for line in data_user:
+        folder_data.data_user.write(username)
+        folder_data.data_user.write(password)
+        for line in folder_data.data_user:
+            line.split.str(folder_data.data_user.write('\n' + password))
 
-            continue
-        line.split.str(data_user.write(password))
+
+def menu_connecter():
+    if choix == 1:
+        print("Pas encore disponible !")
+    elif choix == 2:
+        print("Pas encore disponible !")
+    elif choix == 3:
+        print("Pas encore disponible !")
         
 def menu_non_connecter():
         if choix == 1:
             connection()
+            menu_connecter()
+            folder_data.data_user.close()
 
         elif choix == 2:
             inscription()
+            folder_data.data_user.close()
 
         elif choix == 3:
             print("Vous êtes déconnecté !")
-            data_user.close()
+            folder_data.data_user.close()
 
 menu_non_connecter()
