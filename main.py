@@ -7,73 +7,89 @@ print("""
              |__|       |__|    |__|    |______|    |___________|
                                                                    """)
 
-print("Souhaitez-vous vous connecter à notre systême")
+print("Souhaitez-vous vous connecter à notre systême ?")
 
 print("1. Se connecter")
 print("2. S'inscrire")
 print("3. Déconnecté")
 
-choix = int(input("Que souhaiter vous faire : "))
+data_user = open("data.txt", "a+")
 
-def folder_data():
-    data_user = open("data.txt", "a+")
+def choix():
+    choix = int(input("Que souhaiter vous faire : "))
+    if choix is 'str()':
+        print("Veulliez mettre un nombre !")
+        choix = input("Que souhaiter vous faire : ")
 
+choix()
 
-def connection():
-    username = input("Nom d'utilisateur : ")
-    password = input("Mot de passe : ")
+class ConnectionData:
 
-    if username not in folder_data.data_user:
-        print("Votre nom d'utilisateur ou votre mot de passe est incorrect")
-    elif password not in folder_data.data_user:
-        print("Votre nom d'utilisateur ou votre mot de passe est incorrect")
-    else:
-        print("Vous êtes connecté")
+    def connection_input():
+        username = str(input("Nom d'utilisateur : "))
+        password = input("Mot de passe : ")
 
-def inscription():
-    username = str(input("Mettez votre nom d'utilisateur : "))
-    password = input("Mettez votre mots de passe : ")
-    password2 = input("Re-mettez votre mots de passe : ")
+    def username_check():
+        if ConnectionData.connection_input.username not in data_user:
+            print("Votre nom d'utilisateur ou votre mot de passe est incorrect !")
 
-    if password != password2:
-        print("Les mots de passe ne correspondent pas")
+    def password_check():
+        if ConnectionData.connection_input.password not in data_user:
+            print("Votre nom d'utilisateur ou votre mot de passe est incorrect !")
 
-    elif username in folder_data.data_user:
-        try:
-            retry_username = str(username)
-        except ValueError:
-            print("Nom d'utilisateur deja pris !")
-        print(retry_username)
+    def connection():        
+        if ConnectionData.username_check == True + ConnectionData.password_check == True:
+            print("Vous êtes connecté !")
 
+class InscriptionData:
 
-    else:
-        print("Les mots de passe correspondent bien")
-        folder_data.data_user.write(username)
-        folder_data.data_user.write(password)
-        for line in folder_data.data_user:
-            line.split.str(folder_data.data_user.write('\n' + password))
+    def inscription_input():
+        username = str(input("Mettez votre nom d'utilisateur : "))
+        password = input("Mettez votre mots de passe : ")
+        password2 = input("Re-mettez votre mots de passe : ")
+    
+    def password_check():
+        if InscriptionData.inscription_input.password != InscriptionData.inscription_input.password2: # Password check
+            wrong_password = print("Les mots de passe ne correspondent pas !")
+        else:
+            print("Les mots de passe correspondent bien !")
 
+    def username_check():
+        if InscriptionData.inscription_input.username in data_user:
+            username_unavailable = print("Nom d'utilisateur indisponible !")
+        else:
+            print("Nom d'urilisateur disponible !")
 
-def menu_connecter():
-    if choix == 1:
-        print("Pas encore disponible !")
-    elif choix == 2:
-        print("Pas encore disponible !")
-    elif choix == 3:
-        print("Pas encore disponible !")
-        
-def menu_non_connecter():
+    def inscription():
+        InscriptionData.inscription_input()
+        if InscriptionData.username_check == False:
+            print(InscriptionData.username_check.username_unavailable)
+        elif InscriptionData.password_check == False:
+            print(InscriptionData.password_check.wrong_password)
+        else:
+            print("compte crée")
+            data_user.write(InscriptionData.inscription_input.username)
+            data_user.write('\n' + InscriptionData.inscription_input.password)
+
+class Menu:
+
+    def menu_connecter():
         if choix == 1:
-            connection()
-            menu_connecter()
-            folder_data.data_user.close()
-
+            print("Pas encore disponible !")
         elif choix == 2:
-            inscription()
-            folder_data.data_user.close()
-
+            print("Pas encore disponible !")
         elif choix == 3:
-            print("Vous êtes déconnecté !")
-            folder_data.data_user.close()
+            print("Pas encore disponible !")
+        
+    def menu_non_connecter():
+            if choix == 1:
+                ConnectionData.connection()
 
-menu_non_connecter()
+            elif choix == 2:
+                InscriptionData.inscription()
+
+            elif choix == 3:
+                print("Vous êtes déconnecté !")
+                data_user.close()
+                
+    menu_non_connecter()
